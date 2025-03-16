@@ -28,7 +28,7 @@ jobs:
         run: mvn install
 
       - name: Run Gatling tests
-        run: mvn gatling:test -Dgatling.runMultipleSimulations=true
+        run: mvn gatling:test -Dgatling.runMultipleSimulations = true
 
       - name: Upload Gatling reports
         uses: actions/upload-artifact@v4
