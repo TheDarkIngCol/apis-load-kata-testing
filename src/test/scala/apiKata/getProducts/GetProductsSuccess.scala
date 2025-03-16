@@ -4,7 +4,8 @@ import io.gatling.core.Predef._
 import config.MethodsHttp.get
 import utilities.{BuildRequest, EnvironmentValues, RequestParams}
 
-class GetProductsSuccess extends Simulation {
+class
+GetProductsSuccess extends Simulation {
 
   val env = new EnvironmentValues()
   val params = new RequestParams()
