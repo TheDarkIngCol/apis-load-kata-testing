@@ -1,0 +1,8 @@
+{
+  "id": 4,
+  "title": "Prueba",
+  "price": 0.1,
+  "description": "Esto es una prueba para la creacion de un producto para mi KATA",
+  "category": "KATA",
+  "image": "http://example.com"
+}
