@@ -1,0 +1,4 @@
+./mvnw gatling:test -Dgatling.simulationClass=apiKata.deleteProducts.DeleteProductsSuccess
+./mvnw gatling:test -Dgatling.simulationClass=apiKata.getProducts.GetProductsSuccess
+./mvnw gatling:test -Dgatling.simulationClass=apiKata.postProducts.PostProductsSuccess
+./mvnw gatling:test -Dgatling.simulationClass=apiKata.putProducts.PutProductsSuccess
