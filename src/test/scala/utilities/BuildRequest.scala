@@ -8,6 +8,7 @@ import io.gatling.http.Predef._
 import io.gatling.http.protocol.HttpProtocolBuilder
 import io.gatling.http.request.builder.HttpRequestBuilder
 
+//clase que construye solicitudes HTTP para pruebas de carga.
 class BuildRequest(requestParams: RequestParams, outputPath: String = "responses") {
 
   val env = new EnvironmentValues()
@@ -25,6 +26,7 @@ class BuildRequest(requestParams: RequestParams, outputPath: String = "responses
   def httpProtocol: HttpProtocolBuilder = http
     .baseUrl(requestParams.baseUrl)
 
+  //Define la URL base para todas las solicitudes HTTP.
   def httpRequest: HttpRequestBuilder = {
     var requestBuild = http(requestParams.requestName)
       .httpRequest(requestParams.method, requestParams.pathUrl)
