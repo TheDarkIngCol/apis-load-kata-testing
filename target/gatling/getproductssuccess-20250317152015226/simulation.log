@@ -1,0 +1,289 @@
+RUN	apiKata.getProducts.GetProductsSuccess	getproductssuccess	1742224815226	 	3.11.5
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224817042
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224817042
+USER	Modelo Abierto | Usuarios constantes por segundo	START	1742224817046
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224817047
+USER	Modelo Abierto | Usuarios fijos al mismo tiempo	START	1742224817048
+USER	Modelo Abierto | Usuarios fijos al mismo tiempo	START	1742224817048
+USER	Modelo Abierto | Usuarios fijos al mismo tiempo	START	1742224817064
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224817249
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224817287
+USER	Modelo Abierto | Usuarios constantes por segundo	START	1742224817370
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224817376
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224817449
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224817538
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224817650
+USER	Modelo Abierto | Usuarios constantes por segundo	START	1742224817703
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224817708
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224817787
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224817849
+REQUEST		get model	1742224817061	1742224817932	OK	 
+REQUEST		get model	1742224817061	1742224817933	OK	 
+REQUEST		get model	1742224817061	1742224817933	OK	 
+REQUEST		get model	1742224817061	1742224817932	OK	 
+REQUEST		get model	1742224817249	1742224817935	OK	 
+REQUEST		get model	1742224817061	1742224817934	OK	 
+REQUEST		get model	1742224817061	1742224817934	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224817951
+USER	Modelo Abierto | Usuarios fijos al mismo tiempo	END	1742224817952
+USER	Modelo Abierto | Usuarios constantes por segundo	END	1742224817952
+USER	Modelo Abierto | Usuarios fijos al mismo tiempo	END	1742224817953
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224817954
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224817954
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224817955
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224817955
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224817956
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224817956
+REQUEST		get model	1742224817064	1742224817956	OK	 
+USER	Modelo Abierto | Usuarios fijos al mismo tiempo	END	1742224817959
+REQUEST		get model	1742224817288	1742224817975	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224817977
+USER	Modelo Abierto | Usuarios constantes por segundo	START	1742224818037
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224818038
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224818051
+REQUEST		get model	1742224817376	1742224818062	OK	 
+REQUEST		get model	1742224817370	1742224818062	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224818064
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224818064
+USER	Modelo Abierto | Usuarios constantes por segundo	END	1742224818065
+REQUEST		get model	1742224817449	1742224818131	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224818133
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224818133
+REQUEST		get model	1742224817539	1742224818232	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224818234
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224818238
+REQUEST		get model	1742224817651	1742224818340	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224818342
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224818342
+USER	Modelo Abierto | Usuarios constantes por segundo	START	1742224818370
+REQUEST		get model	1742224817704	1742224818395	OK	 
+USER	Modelo Abierto | Usuarios constantes por segundo	END	1742224818397
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224818438
+REQUEST		get model	1742224817709	1742224818501	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224818504
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224818504
+REQUEST		get model	1742224817849	1742224818602	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224818604
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224818604
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224818639
+REQUEST		get model	1742224817956	1742224818643	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224818645
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224818645
+REQUEST		get model	1742224817955	1742224818652	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224818653
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224818653
+USER	Modelo Abierto | Usuarios constantes por segundo	START	1742224818703
+REQUEST		get model	1742224817955	1742224818709	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224818711
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224818711
+REQUEST		get model	1742224818052	1742224818731	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224818733
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224818733
+REQUEST		get model	1742224818037	1742224818769	OK	 
+USER	Modelo Abierto | Usuarios constantes por segundo	END	1742224818771
+REQUEST		get model	1742224818038	1742224818817	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224818819
+REQUEST		get model	1742224818133	1742224818825	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224818826
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224818827
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224818838
+REQUEST		get model	1742224818065	1742224818849	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224818850
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224818851
+REQUEST		get model	1742224818239	1742224818910	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224818912
+REQUEST		get model	1742224818342	1742224819030	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224819032
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224819033
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224819042
+REQUEST		get model	1742224818370	1742224819054	OK	 
+USER	Modelo Abierto | Usuarios constantes por segundo	END	1742224819056
+REQUEST		get model	1742224817788	1742224819105	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224819107
+REQUEST		get model	1742224818438	1742224819117	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224819119
+REQUEST		get model	1742224818504	1742224819206	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224819208
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224819208
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224819287
+REQUEST		get model	1742224818604	1742224819290	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224819291
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224819291
+REQUEST		get model	1742224818645	1742224819339	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224819341
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224819341
+REQUEST		get model	1742224818639	1742224819345	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224819358
+REQUEST		get model	1742224818712	1742224819397	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224819399
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224819399
+REQUEST		get model	1742224818654	1742224819405	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224819406
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224819407
+REQUEST		get model	1742224818733	1742224819430	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224819432
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224819432
+REQUEST		get model	1742224818827	1742224819498	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224819500
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224819500
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224819538
+REQUEST		get model	1742224818851	1742224819541	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224819543
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224819543
+REQUEST		get model	1742224818704	1742224819548	OK	 
+USER	Modelo Abierto | Usuarios constantes por segundo	END	1742224819549
+REQUEST		get model	1742224818839	1742224819608	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224819610
+REQUEST		get model	1742224819033	1742224819720	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224819722
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224819722
+REQUEST		get model	1742224819042	1742224819738	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224819740
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224819787
+REQUEST		get model	1742224819209	1742224819899	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224819901
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224819901
+REQUEST		get model	1742224819287	1742224819974	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224819976
+REQUEST		get model	1742224819292	1742224819979	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224819980
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	START	1742224819980
+REQUEST		get model	1742224819342	1742224820029	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224820030
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224820030
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224820040
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224820050
+REQUEST		get model	1742224819399	1742224820084	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224820086
+REQUEST		get model	1742224819407	1742224820109	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224820111
+REQUEST		get model	1742224819432	1742224820113	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224820114
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224820114
+REQUEST		get model	1742224819500	1742224820202	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224820204
+REQUEST		get model	1742224819538	1742224820218	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224820219
+REQUEST		get model	1742224819544	1742224820247	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224820250
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224820250
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224820286
+REQUEST		get model	1742224819722	1742224820421	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224820422
+REQUEST		get model	1742224819788	1742224820474	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224820475
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224820536
+REQUEST		get model	1742224819901	1742224820589	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224820591
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224820591
+REQUEST		get model	1742224819980	1742224820658	OK	 
+USER	Modelo Cerrado | Usuarios concurrentes por segundo	END	1742224820660
+REQUEST		get model	1742224820040	1742224820712	OK	 
+REQUEST		get model	1742224820031	1742224820712	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224820713
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224820713
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224820713
+REQUEST		get model	1742224820050	1742224820734	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224820735
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224820736
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224820786
+REQUEST		get model	1742224820250	1742224820933	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224820935
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224820935
+REQUEST		get model	1742224820114	1742224820978	OK	 
+REQUEST		get model	1742224820286	1742224820978	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224820980
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224820980
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224820980
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224821036
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224821052
+REQUEST		get model	1742224820536	1742224821249	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224821250
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224821286
+REQUEST		get model	1742224820591	1742224821291	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224821293
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224821293
+REQUEST		get model	1742224820713	1742224821399	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224821400
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224821400
+REQUEST		get model	1742224820736	1742224821415	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224821416
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224821416
+REQUEST		get model	1742224820787	1742224821478	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224821479
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224821537
+REQUEST		get model	1742224820935	1742224821643	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224821644
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224821644
+REQUEST		get model	1742224820981	1742224821692	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224821694
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224821694
+REQUEST		get model	1742224821037	1742224821746	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224821747
+REQUEST		get model	1742224821052	1742224821762	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224821764
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224821764
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224821786
+REQUEST		get model	1742224821286	1742224821982	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224821983
+REQUEST		get model	1742224821293	1742224821996	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224821998
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	START	1742224821999
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224822035
+REQUEST		get model	1742224821400	1742224822077	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224822079
+REQUEST		get model	1742224821417	1742224822099	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224822101
+REQUEST		get model	1742224821537	1742224822212	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224822213
+REQUEST		get model	1742224821644	1742224822339	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224822341
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224822369
+REQUEST		get model	1742224821694	1742224822388	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224822390
+REQUEST		get model	1742224821786	1742224822479	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224822481
+REQUEST		get model	1742224821764	1742224822489	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224822490
+REQUEST		get model	1742224821999	1742224822696	OK	 
+USER	Modelo Cerrado | Aumento de usuarios concurrentes	END	1742224822698
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224822702
+REQUEST		get model	1742224822036	1742224822723	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224822725
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224823036
+REQUEST		get model	1742224822369	1742224823064	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224823066
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224823370
+REQUEST		get model	1742224822702	1742224823408	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224823410
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224823703
+REQUEST		get model	1742224823036	1742224823720	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224823722
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224824036
+REQUEST		get model	1742224823370	1742224824056	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224824058
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224824369
+REQUEST		get model	1742224823703	1742224824375	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224824377
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224824702
+REQUEST		get model	1742224824037	1742224824722	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224824723
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224825037
+REQUEST		get model	1742224824369	1742224825045	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224825047
+REQUEST		get model	1742224824702	1742224825389	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224825391
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224825536
+REQUEST		get model	1742224825037	1742224825717	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224825718
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224826036
+REQUEST		get model	1742224825536	1742224826210	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224826215
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224826369
+USER	Modelo Abierto | Disminucion de usuarios	START	1742224826702
+REQUEST		get model	1742224826036	1742224826783	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224826788
+REQUEST		get model	1742224826369	1742224827057	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224827059
+REQUEST		get model	1742224826702	1742224827379	OK	 
+USER	Modelo Abierto | Disminucion de usuarios	END	1742224827381
