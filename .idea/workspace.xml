@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7538d22-e076-44fc-a40b-677a9b800d73" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/analysis/test-compile" beforeDir="false" afterPath="$PROJECT_DIR$/target/analysis/test-compile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gatling/lastRun.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/gatling/lastRun.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
