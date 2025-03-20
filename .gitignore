@@ -42,3 +42,19 @@ __pycache__
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+
+# Ignorar archivos de IntelliJ IDEA
+*.iml
+
+# Ignorar carpeta de compilación de Maven
+target/
+
+# Ignorar archivos de registro
+logs/
+
+# Ignorar wrappers de Maven (si no los usas)
+mvnw
+mvnw.cmd
+
+# Ignorar archivos temporales
+start.txt
