@@ -58,5 +58,4 @@ logs/
 # Ignorar wrappers de Maven (si no los usas)
 
 mvnw.cmd
-
 # Ignorar archivos temporales
