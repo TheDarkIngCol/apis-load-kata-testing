@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7538d22-e076-44fc-a40b-677a9b800d73" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/apiKata/deleteProducts/DeleteProductsSuccess.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/apiKata/deleteProducts/DeleteProductsSuccess.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/apiKata/getProducts/response_get model.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/apiKata/getProducts/response_get model.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/analysis/test-compile" beforeDir="false" afterPath="$PROJECT_DIR$/target/analysis/test-compile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gatling/lastRun.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/gatling/lastRun.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/apiKata/putProducts/PutProductsSuccess.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/apiKata/putProducts/PutProductsSuccess.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

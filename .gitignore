@@ -4,7 +4,11 @@
 .idea/
 #Dependencies
 /node_modules
-
+.mvn/wrapper
+logs
+.env
+mvnw
+start.txt
 #Compile output
 .scannerwork
 screenshots/*
