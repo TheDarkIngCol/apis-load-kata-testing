@@ -2,7 +2,6 @@ package utilities
 
 import java.io.PrintWriter
 import java.nio.file.{Files, Paths}
-
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
 import io.gatling.http.Predef._
@@ -59,7 +58,6 @@ class BuildRequest(requestParams: RequestParams, outputPath: String = "") {
     session
   }
 
-  // Método para guardar todas las respuestas al archivo
   private def saveAllResponsesToFile(): Unit = {
     val targetDir = if (outputPath.trim.isEmpty) {
       Paths.get("").toAbsolutePath.toString
@@ -94,13 +92,10 @@ class BuildRequest(requestParams: RequestParams, outputPath: String = "") {
       requestParams.feederRandom
     })
 
-    // Flujo con el request y guardado en memoria de respuestas
     scenarioRequest = scenarioRequest
       .exec(httpRequest)
       .exec(session => saveResponseInMemory(session))
 
-    // Aquí agrego una ejecución extra que guarda TODO al final
-    // Esto se ejecuta justo después del último request
     scenarioRequest = scenarioRequest.exec { session =>
       saveAllResponsesToFile()
       session
