@@ -12,6 +12,7 @@ GetProductsSuccess extends Simulation {
   params.baseUrl = "https://reqres.in"
   params.pathUrl = "/api/users?page=2"
 
+
   params.headers = Map(
     "x-api-key" -> "reqres-free-v1"
   )
