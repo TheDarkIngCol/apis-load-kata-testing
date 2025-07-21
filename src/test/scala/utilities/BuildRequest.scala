@@ -1,44 +1,44 @@
 package utilities
 
 import java.io.PrintWriter
+import java.nio.file.{Files, Paths}
+
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
 import io.gatling.http.Predef._
 import io.gatling.http.protocol.HttpProtocolBuilder
 import io.gatling.http.request.builder.HttpRequestBuilder
 
-import play.api.libs.json._  // Play JSON
+import play.api.libs.json._
 
 import scala.collection.mutable.ListBuffer
 
-class BuildRequest(requestParams: RequestParams, outputPath: String = "responses") {
+class BuildRequest(requestParams: RequestParams, outputPath: String = "") {
 
-  // Buffer para acumular todas las respuestas JSON
   private val responsesBuffer = ListBuffer.empty[JsObject]
 
   def httpProtocol: HttpProtocolBuilder = http
     .baseUrl(requestParams.baseUrl)
 
   def httpRequest: HttpRequestBuilder = {
-    var requestBuild = http(requestParams.requestName)
+    var request = http(requestParams.requestName)
       .httpRequest(requestParams.method, requestParams.pathUrl)
-      .check(bodyString.saveAs("responseBody"))
-      .check(status.saveAs("responseStatus"))
       .queryParamMap(requestParams.queryParams)
-      .check(status.is(requestParams.statusExpected))
       .headers(requestParams.headers)
+      .check(status.is(requestParams.statusExpected))
+      .check(status.saveAs("responseStatus"))
+      .check(bodyString.saveAs("responseBody"))
 
-    if (requestParams.templateJson != "") {
-      requestBuild = requestBuild.body(ElFileBody(requestParams.templateJson)).asJson
+    if (requestParams.templateJson.nonEmpty) {
+      request = request.body(ElFileBody(requestParams.templateJson)).asJson
     }
-    requestBuild
+    request
   }
 
-  // Guarda en memoria cada respuesta (JSON)
   private def saveResponseInMemory(session: Session): Session = {
     val responseStatus = session("responseStatus").as[Int]
-    val responseBody = session("responseBody").as[String]
-    val requestName = requestParams.requestName
+    val responseBody   = session("responseBody").as[String]
+    val requestName    = requestParams.requestName
 
     val bodyJsonValue: JsValue = try {
       Json.parse(responseBody)
@@ -48,52 +48,64 @@ class BuildRequest(requestParams: RequestParams, outputPath: String = "responses
 
     val jsonEntry = Json.obj(
       "requestName" -> requestName,
-      "status" -> responseStatus,
-      "body" -> bodyJsonValue
+      "status"      -> responseStatus,
+      "body"        -> bodyJsonValue
     )
 
     responsesBuffer.synchronized {
       responsesBuffer += jsonEntry
     }
 
-    // Imprime resumen en consola
-    if (responseStatus == requestParams.statusExpected) {
-      println(s"[OK] $requestName - Status: $responseStatus")
-    } else {
-      println(s"[FAIL] $requestName - Status: $responseStatus")
-    }
-
     session
   }
 
-  // Guarda todas las respuestas acumuladas en un archivo JSON al final
-  def saveAllResponsesToFile(): Unit = {
-    val file = new java.io.File(s"$outputPath/all_responses.json")
-    file.getParentFile.mkdirs() // crea carpeta si no existe
+  // Método para guardar todas las respuestas al archivo
+  private def saveAllResponsesToFile(): Unit = {
+    val targetDir = if (outputPath.trim.isEmpty) {
+      Paths.get("").toAbsolutePath.toString
+    } else outputPath
+
+    val dirPath = Paths.get(targetDir)
+    if (!Files.exists(dirPath)) {
+      Files.createDirectories(dirPath)
+    }
+
+    val file = dirPath.resolve("all_responses.json").toFile
+
     val jsonArray = Json.toJson(responsesBuffer.toList)
-    val pw = new PrintWriter(file)
+    val writer = new PrintWriter(file)
+
     try {
-      pw.write(Json.prettyPrint(jsonArray))
+      writer.write(Json.prettyPrint(jsonArray))
       println(s"Archivo JSON con todas las respuestas guardado en: ${file.getAbsolutePath}")
     } finally {
-      pw.close()
+      writer.close()
     }
   }
 
   def scn: ScenarioBuilder = {
     var scenarioRequest = scenario(requestParams.scenarioName)
-    for (i <- requestParams.feederCsv.indices) {
-      scenarioRequest = scenarioRequest.feed(csv(requestParams.feederCsv(i)).queue)
+
+    requestParams.feederCsv.foreach { feeder =>
+      scenarioRequest = scenarioRequest.feed(csv(feeder).queue)
     }
+
     scenarioRequest = scenarioRequest.feed(Iterator.continually {
       requestParams.feederRandom
     })
+
+    // Flujo con el request y guardado en memoria de respuestas
     scenarioRequest = scenarioRequest
       .exec(httpRequest)
-      .exec { session =>
-        saveResponseInMemory(session)
-        session
-      }
+      .exec(session => saveResponseInMemory(session))
+
+    // Aquí agrego una ejecución extra que guarda TODO al final
+    // Esto se ejecuta justo después del último request
+    scenarioRequest = scenarioRequest.exec { session =>
+      saveAllResponsesToFile()
+      session
+    }
+
     scenarioRequest
   }
 }
