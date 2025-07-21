@@ -49,9 +49,6 @@ __pycache__
 # Ignorar archivos de IntelliJ IDEA
 *.iml
 
-# Ignorar carpeta de compilación de Maven
-target/
-
 # Ignorar archivos de registro
 logs/
 
