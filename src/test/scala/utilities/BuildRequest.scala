@@ -1,6 +1,5 @@
 package utilities
 
-import java.nio.charset.StandardCharsets
 import java.io.PrintWriter
 import io.gatling.core.Predef._
 import io.gatling.core.structure.ScenarioBuilder
@@ -8,19 +7,14 @@ import io.gatling.http.Predef._
 import io.gatling.http.protocol.HttpProtocolBuilder
 import io.gatling.http.request.builder.HttpRequestBuilder
 
+import play.api.libs.json._  // Play JSON
+
+import scala.collection.mutable.ListBuffer
+
 class BuildRequest(requestParams: RequestParams, outputPath: String = "responses") {
 
-  val env = new EnvironmentValues()
-  val requestSigner = new RequestSignerAWS(requestParams)
-
-  if (env.getenv("USE_LAMBDA_URL") == "true") {
-    requestParams.baseUrl = requestSigner.url
-    requestParams.pathUrl = ""
-    requestParams.headers = Map()
-    requestParams.method = requestSigner.method
-    requestParams.templateJson = requestSigner.body
-    requestParams.queryParams = Map()
-  }
+  // Buffer para acumular todas las respuestas JSON
+  private val responsesBuffer = ListBuffer.empty[JsObject]
 
   def httpProtocol: HttpProtocolBuilder = http
     .baseUrl(requestParams.baseUrl)
@@ -28,50 +22,62 @@ class BuildRequest(requestParams: RequestParams, outputPath: String = "responses
   def httpRequest: HttpRequestBuilder = {
     var requestBuild = http(requestParams.requestName)
       .httpRequest(requestParams.method, requestParams.pathUrl)
-      .check(bodyString.saveAs("responseBody")) // Guardar el cuerpo de la respuesta
-      .check(status.saveAs("responseStatus"))   // Guardar el status de la respuesta
+      .check(bodyString.saveAs("responseBody"))
+      .check(status.saveAs("responseStatus"))
       .queryParamMap(requestParams.queryParams)
-      .check(status.is(requestParams.statusExpected)) // Validar el status esperado
+      .check(status.is(requestParams.statusExpected))
       .headers(requestParams.headers)
 
     if (requestParams.templateJson != "") {
-      if (env.getenv("USE_LAMBDA_URL") == "true") {
-        requestBuild = requestBuild.body(StringBody(s"""${requestParams.templateJson}"""))
-        requestBuild = requestBuild.sign { (request, session) =>
-          val bodyJson = new String(request.getBody.getBytes, StandardCharsets.UTF_8)
-          val headerSigned = requestSigner.headers(bodyJson)
-          for ((k, v) <- headerSigned) request.getHeaders.set(k, v)
-          request
-        }
-      } else {
-        requestBuild = requestBuild.body(ElFileBody(requestParams.templateJson)).asJson
-      }
+      requestBuild = requestBuild.body(ElFileBody(requestParams.templateJson)).asJson
     }
     requestBuild
   }
 
-  // Método para guardar la respuesta en un archivo JSON y mostrar en consola
-  private def saveResponseToFile(session: Session): Session = {
-    // Obtener el status y el cuerpo de la respuesta
+  // Guarda en memoria cada respuesta (JSON)
+  private def saveResponseInMemory(session: Session): Session = {
     val responseStatus = session("responseStatus").as[Int]
     val responseBody = session("responseBody").as[String]
+    val requestName = requestParams.requestName
 
-    // Comparar el status encontrado con el status esperado
-    if (responseStatus == requestParams.statusExpected) {
-      println(s"Status exitoso: Esperado: ${requestParams.statusExpected}, Encontrado: $responseStatus")
-    } else {
-      println(s"Status Fallido: Esperado ${requestParams.statusExpected}, Encontrado $responseStatus")
+    val bodyJsonValue: JsValue = try {
+      Json.parse(responseBody)
+    } catch {
+      case _: Throwable => JsString(responseBody)
     }
 
-    // Mostrar en consola el cuerpo de la respuesta
-    println(s"Response Body: $responseBody")
+    val jsonEntry = Json.obj(
+      "requestName" -> requestName,
+      "status" -> responseStatus,
+      "body" -> bodyJsonValue
+    )
 
-    // Guardar la respuesta en un archivo JSON con un nombre único
-    val fileName = s"$outputPath/response_${requestParams.requestName}.json"
-    val pw = new PrintWriter(fileName)
-    pw.write(responseBody)
-    pw.close()
+    responsesBuffer.synchronized {
+      responsesBuffer += jsonEntry
+    }
+
+    // Imprime resumen en consola
+    if (responseStatus == requestParams.statusExpected) {
+      println(s"[OK] $requestName - Status: $responseStatus")
+    } else {
+      println(s"[FAIL] $requestName - Status: $responseStatus")
+    }
+
     session
+  }
+
+  // Guarda todas las respuestas acumuladas en un archivo JSON al final
+  def saveAllResponsesToFile(): Unit = {
+    val file = new java.io.File(s"$outputPath/all_responses.json")
+    file.getParentFile.mkdirs() // crea carpeta si no existe
+    val jsonArray = Json.toJson(responsesBuffer.toList)
+    val pw = new PrintWriter(file)
+    try {
+      pw.write(Json.prettyPrint(jsonArray))
+      println(s"Archivo JSON con todas las respuestas guardado en: ${file.getAbsolutePath}")
+    } finally {
+      pw.close()
+    }
   }
 
   def scn: ScenarioBuilder = {
@@ -83,9 +89,9 @@ class BuildRequest(requestParams: RequestParams, outputPath: String = "responses
       requestParams.feederRandom
     })
     scenarioRequest = scenarioRequest
-      .exec(httpRequest) // Ejecutar la solicitud HTTP
+      .exec(httpRequest)
       .exec { session =>
-        saveResponseToFile(session) // Guardar la respuesta en un archivo JSON y mostrar en consola
+        saveResponseInMemory(session)
         session
       }
     scenarioRequest

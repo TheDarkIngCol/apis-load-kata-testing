@@ -24,6 +24,9 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
+      - name: Clean previous Gatling reports
+        run: rm -rf target/gatling/*
+
       - name: Install dependencies
         run: mvn install
 
