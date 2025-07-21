@@ -1,5 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -18,12 +20,15 @@
     </properties>
 
     <dependencies>
+        <!-- Gatling load testing engine with charts -->
         <dependency>
             <groupId>io.gatling.highcharts</groupId>
             <artifactId>gatling-charts-highcharts</artifactId>
             <version>${gatling.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- JSON parsing libraries -->
         <dependency>
             <groupId>io.circe</groupId>
             <artifactId>circe-core_2.13</artifactId>
@@ -40,32 +45,33 @@
             <version>0.14.5</version>
         </dependency>
 
+        <!-- Environment variables -->
         <dependency>
             <groupId>io.github.cdimascio</groupId>
             <artifactId>java-dotenv</artifactId>
             <version>5.2.2</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jar-plugin</artifactId>
-            <version>${maven-jar-plugin.version}</version>
-        </dependency>
+
+        <!-- AWS SDK core -->
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk-core</artifactId>
             <version>1.12.364</version>
         </dependency>
+
+        <!-- JSON handling libraries -->
         <dependency>
             <groupId>com.typesafe.play</groupId>
             <artifactId>play-json_2.13</artifactId>
             <version>2.9.4</version>
         </dependency>
-
         <dependency>
             <groupId>org.json4s</groupId>
             <artifactId>json4s-native_2.13</artifactId>
             <version>4.0.6</version>
         </dependency>
+
+        <!-- Commons -->
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
@@ -76,20 +82,36 @@
             <artifactId>aws-v4-signer-java</artifactId>
             <version>1.3</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.15.2</version>
+        </dependency>
+
+
+        <!-- Jackson core (uso opcional) -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
             <version>2.17.2</version>
         </dependency>
+
+        <!-- (Opcional) JSON Schema validator -->
+        <dependency>
+            <groupId>com.networknt</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>1.0.76</version>
+        </dependency>
+
+
+
     </dependencies>
 
     <build>
         <testSourceDirectory>src/test/scala</testSourceDirectory>
         <plugins>
-            <plugin>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>${maven-jar-plugin.version}</version>
-            </plugin>
+            <!-- Compila archivos .scala -->
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
@@ -115,19 +137,24 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- Compila y empaqueta en .jar -->
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven-jar-plugin.version}</version>
+            </plugin>
+
+            <!-- Ejecuta simulaciones de Gatling -->
             <plugin>
                 <groupId>io.gatling</groupId>
                 <artifactId>gatling-maven-plugin</artifactId>
                 <version>${gatling-maven-plugin.version}</version>
-            </plugin>
-            <plugin>
-                <groupId>io.gatling</groupId>
-                <artifactId>gatling-maven-plugin</artifactId>
-                <version>4.9.5</version>
                 <configuration>
                     <runMultipleSimulations>true</runMultipleSimulations>
                 </configuration>
             </plugin>
+
+            <!-- Compilador estándar Java -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

@@ -76,7 +76,6 @@ class BuildRequest(requestParams: RequestParams, outputPath: String = "") {
 
     try {
       writer.write(Json.prettyPrint(jsonArray))
-      println(s"Archivo JSON con todas las respuestas guardado en: ${file.getAbsolutePath}")
     } finally {
       writer.close()
     }
@@ -96,7 +95,6 @@ class BuildRequest(requestParams: RequestParams, outputPath: String = "") {
     scenarioRequest = scenarioRequest
       .exec(httpRequest)
       .exec(session => saveResponseInMemory(session))
-      // Ejecuta esto justo después del request para guardar el archivo completo
       .exec { session =>
         saveAllResponsesToFile()
         session

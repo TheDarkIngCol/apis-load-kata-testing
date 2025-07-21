@@ -26,7 +26,7 @@ class PostProductsSuccess extends Simulation {
   val outputPath = "src/test/scala/apiKata/postProducts"
   val request = new BuildRequest(params, outputPath)
 
-  val scenario1 = scenario("Modelo Abierto | Usuarios constantes por segundo").exec(request.scn).inject(constantUsersPerSec(10) during(20))
+  val scenario1 = scenario("Modelo Abierto | Usuarios constantes por segundo").exec(request.scn).inject(constantUsersPerSec(100) during(20))
 
   setUp(
     scenario1
