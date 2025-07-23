@@ -6,3 +6,4 @@ Proyecto de automatización de APIS con pruebas de carga con gatling para la pre
 - Para ejecutar los test: ./mvnw gatling:test
 - Para instalar dependencias: ./mvnw install
 - Para limpiar el proyecto: ./mvnw clean
+- mvn gatling:test -Dgatling.simulationClass=miempaquetado.MiSimulacion
